@@ -1,0 +1,17 @@
+
+> rest-express@1.0.0 dev
+> NODE_ENV=development tsx server/index.ts
+
+[1G[0K3:52:19 PM [express] serving on port 5000
+3:52:24 PM [express] GET /api/auth/user 401 in 2ms :: {"message":"Unauthorized"}
+3:52:31 PM [express] GET /api/auth/user 401 in 1ms :: {"message":"Unauthorized"}
+3:52:37 PM [express] POST /api/login/local 401 in 19ms :: {"message":"Invalid username or password"}
+3:52:40 PM [express] POST /api/login/local 401 in 4ms :: {"message":"Invalid username or password"}
+3:53:05 PM [express] POST /api/register 400 in 12ms :: {"message":"Username already exists"}
+3:53:13 PM [express] POST /api/register 400 in 2ms :: {"message":"Username already exists"}
+3:53:19 PM [express] POST /api/register 200 in 62ms :: {"success":true}
+3:53:19 PM [express] GET /api/auth/user 401 in 1ms :: {"message":"Unauthorized"}
+3:53:34 PM [express] GET /api/auth/user 401 in 1ms :: {"message":"Unauthorized"}
+3:53:46 PM [express] POST /api/login/local 200 in 36ms :: {"success":true}
+3:53:46 PM [express] GET /api/auth/user 401 in 1ms :: {"message":"Unauthorized"}
+3:54:40 PM [express] GET /api/auth/user 401 in 1ms :: {"message":"Unauthorized"}

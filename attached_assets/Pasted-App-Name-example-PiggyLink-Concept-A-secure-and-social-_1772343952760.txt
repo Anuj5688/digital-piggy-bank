@@ -1,0 +1,25 @@
+App Name (example): PiggyLink
+Concept:
+A secure and social digital piggybank that makes saving, sending, and managing money effortless. It connects seamlessly with popular payment apps, giving users flexibility and control over their funds.
+Core Features:
+- Send & Receive Money: Instantly transfer funds between PiggyLink users.
+- Deposit Funds: Add money to your piggybank balance from linked bank accounts or external payment apps (e.g., GPay, PayPal).
+- Withdraw Funds: Move money back to your bank account or cash out when needed.
+- Transaction History: Transparent records of deposits, withdrawals, and transfers.
+- User-to-User Network: Connect with friends, family, or groups to share savings goals.
+- Security: End-to-end encryption, PIN/biometric authentication, and fraud detection.
+Prompt Example (Frontend):
+"PiggyLink is your digital piggybank that lets you save smarter and share easier. Deposit money directly from your bank or trusted apps like GPay and PayPal, withdraw when you need it, and send or receive funds instantly with other users. Safe, simple, and social—your money, your way."
+
+⚙️ Backend Prompt
+System Role:
+The backend is the financial engine that powers PiggyLink, ensuring secure, reliable, and compliant money movement.
+Core Responsibilities:
+- Authentication & Security: Validate user identity, encrypt transactions, and monitor for fraud.
+- Deposit Handling: Accept deposits from external payment apps (GPay, PayPal, etc.) and credit balances instantly.
+- Withdrawal Processing: Transfer funds securely to linked bank accounts or wallets.
+- Peer-to-Peer Transfers: Manage instant sending and receiving of money between users.
+- Transaction Ledger: Maintain accurate, auditable records of all financial activity.
+- Notifications & Logs: Provide real-time alerts and maintain compliance-ready logs.
+Prompt Example (Backend):
+"You are the backend service of PiggyLink, a digital piggybank. Your job is to securely process deposits from external apps like GPay and PayPal, withdrawals to user accounts, and peer-to-peer transfers. Always validate identity, encrypt data, and maintain accurate transaction records. Ensure funds move reliably while keeping balances updated in real time."
