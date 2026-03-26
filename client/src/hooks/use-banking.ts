@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { api, type TransactionResponse } from "@shared/routes";
+import { api } from "@shared/routes";
 import { toCents } from "@/lib/utils";
 
 // Helper to handle API fetch
@@ -23,7 +23,7 @@ export function useBalance() {
 }
 
 export function useTransactions() {
-  return useQuery<TransactionResponse[]>({
+  return useQuery<any[]>({
     queryKey: [api.transactions.list.path],
     queryFn: () => fetchApi(api.transactions.list.path),
   });
