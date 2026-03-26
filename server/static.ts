@@ -9,7 +9,7 @@ import fs from "fs";
 import path from "path";
 
  export function serveStatic(app: Express) {
-   const distPath = path.resolve(__dirname, "../client/dist");
+   const distPath = path.resolve(__dirname, "../../client/dist");
 
    if (!fs.existsSync(distPath)) {
      console.log("Build folder not found, skipping static serving");
