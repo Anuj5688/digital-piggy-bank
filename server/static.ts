@@ -1,24 +1,27 @@
-import express, { type Express } from "express";
-import fs from "fs";
+import express from "express";
 import path from "path";
-import { fileURLToPath } from "url";
-import { dirname } from "path";
+import fs from "fs";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-export function serveStatic(app: Express) {
-  const distPath = path.resolve(__dirname, "../../client/dist/public");
+export function serveStatic(app: express.Express) {
+  const distPath = path.join(process.cwd(), "dist", "public");
 
   console.log("Serving from:", distPath);
 
+  // 🔥 Check folder exists
   if (!fs.existsSync(distPath)) {
-    console.log("❌ Build folder not found:", distPath);
+    console.error("❌ Build folder not found:", distPath);
     return;
   }
 
+  // ✅ Serve static files
   app.use(express.static(distPath));
 
+  // ✅ VERY IMPORTANT (fixes "Cannot GET /")
+  app.get("/", (_req, res) => {
+    res.sendFile(path.join(distPath, "index.html"));
+  });
+
+  // ✅ SPA fallback
   app.get("*", (_req, res) => {
     res.sendFile(path.join(distPath, "index.html"));
   });
