@@ -1,10 +1,14 @@
 import express from "express";
 import path from "path";
 import fs from "fs";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 export function serveStatic(app: express.Express) {
-  // 🔥 FIXED PATH (go up one folder)
-  const distPath = path.join(process.cwd(), "..", "dist", "public");
+  // 🔥 ALWAYS go to project root
+  const distPath = path.resolve(__dirname, "../../dist/public");
 
   console.log("Serving from:", distPath);
 
