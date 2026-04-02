@@ -50,10 +50,10 @@
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border;
   }
   body {
-    @apply bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary;
+    @apply bg-white text-black antialiased;
     font-family: var(--font-sans);
   }
   h1, h2, h3, h4, h5, h6 {
