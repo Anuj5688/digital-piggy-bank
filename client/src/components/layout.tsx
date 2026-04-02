@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { Link, useLocation } from "wouter";
-import { useAuth } from "@/hooks/use-auth";
+//import { useAuth } from "@/hooks/use-auth";
 import { Home, Send, Wallet, LogOut, PiggyBank } from "lucide-react";
 import { cn, getInitials } from "@/lib/utils";
 import { Button } from "./ui/button";

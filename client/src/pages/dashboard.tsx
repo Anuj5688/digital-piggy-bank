@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { useAuth } from "@/hooks/use-auth";
-import { useBalance, useTransactions } from "@/hooks/use-banking";
-import { formatMoney, formatDate, cn, getInitials } from "@/lib/utils";
+import { useAuth } from "../hooks/use-auth";
+import { useBalance, useTransactions } from "../hooks/use-banking";
+import { formatMoney, formatDate, cn, getInitials } from "../lib/utils";
 import { 
   ArrowDownLeft, 
   ArrowUpRight, 
@@ -19,8 +19,8 @@ import {
   DialogHeader, 
   DialogTitle, 
   DialogTrigger 
-} from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
+} from "../components/ui/dialog";
+import { Button } from "../components/ui/button";
 
 export default function Dashboard() {
   const { user } = useAuth();

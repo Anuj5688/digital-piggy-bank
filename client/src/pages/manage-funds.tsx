@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { useDeposit, useWithdraw, useBalance } from "@/hooks/use-banking";
-import { formatMoney } from "@/lib/utils";
+import { useDeposit, useWithdraw, useBalance } from "../hooks/use-banking";
+import { formatMoney } from "../lib/utils";
 import { ArrowDownLeft, ArrowUpRight, CheckCircle2, Wallet, CreditCard, Landmark } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "../components/ui/button";
 import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
+import { cn } from "../lib/utils";
 
 const UPI_APPS = [
   { id: 'gpay', name: 'Google Pay', icon: Wallet, color: 'text-blue-500' },

@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { useUsersSearch } from "@/hooks/use-users";
-import { useTransfer } from "@/hooks/use-banking";
-import { formatMoney, getInitials } from "@/lib/utils";
+import { useUsersSearch } from "../hooks/use-users";
+import { useTransfer } from "../hooks/use-banking";
+import { formatMoney, getInitials } from "../lib/utils";
 import { Search, Send, CheckCircle2, User as UserIcon, QrCode, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "../components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocation } from "wouter";
 import { Html5QrcodeScanner } from "html5-qrcode";

@@ -1,23 +1,23 @@
 import { Switch, Route, Redirect } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
-import { Toaster } from "@/components/ui/toaster";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { useAuth } from "@/hooks/use-auth";
-import { Layout } from "@/components/layout";
+import { Toaster } from "../components/ui/toaster";
+import { TooltipProvider } from "../components/ui/tooltip";
+import { useAuth } from "./hooks/use-auth";
+import { Layout } from "../components/layout";
 import { PiggyBank } from "lucide-react";
 
 // Pages
-import LandingPage from "@/pages/landing";
-import Dashboard from "@/pages/dashboard";
-import SendMoney from "@/pages/send-money";
-import ManageFunds from "@/pages/manage-funds";
-import LoginPage from "@/pages/login";
-import RegisterPage from "@/pages/register";
-import NotFound from "@/pages/not-found";
+import LandingPage from "./pages/landing";
+import Dashboard from "./pages/dashboard";
+import SendMoney from "./pages/send-money";
+import ManageFunds from "./pages/manage-funds";
+import LoginPage from "./pages/login";
+import RegisterPage from "./pages/register";
+import NotFound from "./pages/not-found";
 
 function ProtectedRoute({ component: Component }: { component: React.ComponentType }) {
-  const { isAuthenticated, isLoading } = useAuth();
+    const { isAuthenticated, isLoading } = useAuth();
 
   if (isLoading) {
     return (
@@ -36,14 +36,14 @@ function ProtectedRoute({ component: Component }: { component: React.ComponentTy
   }
 
   return (
-    <Layout>
+    //<Layout>
       <Component />
-    </Layout>
+    //</Layout>
   );
 }
 
 function Router() {
-  const { isAuthenticated, isLoading } = useAuth();
+    const { isAuthenticated, isLoading } = useAuth();
 
   return (
     <Switch>
@@ -57,7 +57,7 @@ function Router() {
         {!isAuthenticated && !isLoading ? (
           <LandingPage />
         ) : (
-          <ProtectedRoute component={Dashboard} />
+          <Route path="/" component={Dashboard} />
         )}
       </Route>
       <Route path="/send" component={() => <ProtectedRoute component={SendMoney} />} />
@@ -69,12 +69,9 @@ function Router() {
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Router />
-      </TooltipProvider>
-    </QueryClientProvider>
+     <QueryClientProvider client={queryClient}>
+       <Router />
+     </QueryClientProvider>
   );
 }
 

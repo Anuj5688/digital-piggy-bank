@@ -1,6 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { api } from "@shared/routes";
-import { toCents } from "@/lib/utils";
+import { api } from "../../../shared/routes";
+import { toCents } from "../lib/utils";
 
 // Helper to handle API fetch
 async function fetchApi(path: string, options?: RequestInit) {
