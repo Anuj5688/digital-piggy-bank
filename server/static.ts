@@ -2,7 +2,7 @@ import express from "express";
 import path from "path";
 
 export function serveStatic(app: express.Express) {
-  const distPath = path.join(process.cwd(), "../client/dist");
+  const distPath = path.join(process.cwd(), "../client/dist/public");
 
   console.log("Serving from:", distPath);
 
