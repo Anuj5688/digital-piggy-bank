@@ -1,3 +1,4 @@
+import path from "path"
 import session from "express-session";
 import cors from "cors";
 import "dotenv/config";
