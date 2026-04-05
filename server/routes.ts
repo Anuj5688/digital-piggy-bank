@@ -3,17 +3,17 @@ import { type Server } from "http";
 import { storage } from "./storage";
 import { api } from "@shared/routes";
 import { z } from "zod";
-import { setupAuth, registerAuthRoutes, isAuthenticated } from "./replit_integrations/auth";
+//import { setupAuth, registerAuthRoutes, isAuthenticated } from "./replit_integrations/auth";
 
 export async function registerRoutes(
   httpServer: Server,
   app: Express
 ): Promise<Server> {
   // Setup Auth
-  await setupAuth(app);
-  registerAuthRoutes(app);
+//  await setupAuth(app);
+//  registerAuthRoutes(app);
 
-  app.get(api.balances.get.path, isAuthenticated, async (req: any, res) => {
+  app.get(api.balances.get.path, async (req: any, res) => {
     const userId = req.user.claims.sub;
     let balance = await storage.getBalance(userId);
     if (!balance) {
@@ -22,13 +22,13 @@ export async function registerRoutes(
     res.json({ amount: balance.amount });
   });
 
-  app.get(api.transactions.list.path, isAuthenticated, async (req: any, res) => {
+  app.get(api.transactions.list.path, async (req: any, res) => {
     const userId = req.user.claims.sub;
     const transactions = await storage.getTransactions(userId);
     res.json(transactions);
   });
 
-  app.post(api.transactions.deposit.path, isAuthenticated, async (req: any, res) => {
+  app.post(api.transactions.deposit.path, async (req: any, res) => {
     try {
       const input = api.transactions.deposit.input.parse(req.body);
       const userId = req.user.claims.sub;
@@ -42,7 +42,7 @@ export async function registerRoutes(
     }
   });
 
-  app.post(api.transactions.withdraw.path, isAuthenticated, async (req: any, res) => {
+  app.post(api.transactions.withdraw.path, async (req: any, res) => {
     try {
       const input = api.transactions.withdraw.input.parse(req.body);
       const userId = req.user.claims.sub;
@@ -56,7 +56,7 @@ export async function registerRoutes(
     }
   });
 
-  app.post(api.transactions.transfer.path, isAuthenticated, async (req: any, res) => {
+  app.post(api.transactions.transfer.path, async (req: any, res) => {
     try {
       const input = api.transactions.transfer.input.parse(req.body);
       const userId = req.user.claims.sub;
@@ -70,7 +70,7 @@ export async function registerRoutes(
     }
   });
 
-  app.get(api.users.list.path, isAuthenticated, async (req: any, res) => {
+  app.get(api.users.list.path, async (req: any, res) => {
     try {
       const search = req.query.search as string;
       const users = await storage.searchUsers(search, req.user.claims.sub);
